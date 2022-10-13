@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+  <h1 style="font-style: italic; text-align: center">Стереометрія</h1>
+  <p>Апофемою називається:</p>
+  <p><input type="radio" name="year" id="y1">діагональ основи</p>
+  <p><input type="radio" name="year" id="y2">висота бічної грані</p>
+  <p><input type="radio" name="year" id="y3">медіана бічної грані</p>
+  <p><input type="radio" name="year" id="y4">бісектриса бічної грані </p>
+
+  <button id = "btn">Відповісти</button>
+  <p class="right hidden" id="right"> <b>Правильна відповідь.</b> МОЛОДЧИНКА!!! </p>
+  <div class="wrong_div hidden" id="wrong_div">
+    <p class="wrong" id="wrong"><b>Неправильна відповідь</b></p>
+    <button id = "btn1">Подивитись відповідь</button>
+  </div>
+
+  <p id="answer" class = "hidden"><b>Правильна відповідь:</b> висота бічної грані </p>
+</div>
+<script src="js.js"></script>
+</html>
