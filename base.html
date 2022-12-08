@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>тест</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+* {
+    padding: 10px;
+    margin: 0;
+    }
+    html,
+    body {
+        background-color: #a7c1ce;
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+        font-family: 'Roboto';
+        font-size: 100%;
+        line-height: 1;
+        color: #000;
+        font-size: 14px;
+    }
+    ul li {
+        list-style: none;
+    }
+    .wrapper {
+        padding: 50px;
+        border-radius: 10px;
+        background-color: rgb(110, 130, 139);
+        max-width: 700px;
+        display: flex;
+        margin: 50px auto 0px auto;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .list {
+        margin-top: 30px;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .btn {
+        margin-top: 30px;
+        padding: 10px 15px;
+        background-color: lavender;
+    }
+
+    .hidden {
+        display: none;
+    }
+    .title {
+        padding: 10px;
+        font-weight: 700;
+        line-height: 150%;
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+    .text {
+        font-weight: 500;
+        line-height: 130%;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .span {
+        margin-left: 7px;
+        font-size: 15px;
+    }
+    .list {
+        margin-bottom: 30px;
+    }
+    li {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #b1d6e9;
+    }
+    .btn__answer {
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        background-color: #3a5d6f;
+        padding: 15px 35px;
+        margin-bottom: 20px;
+    }
+    .btn__answer:hover {
+        background-color: #5f95b0;
+    }
+
+    .btn__answer_1 {
+        cursor: pointer;
+        color: #fff;
+        transition: all 0.3s ease 0s;
+        background-color: rgb(177, 105, 105);
+        padding: 15px 35px;
+        margin-bottom: 20px;
+    }
+    .question__number {
+        font-size: 16px;
+        line-height: 130%;
+        margin-bottom: 10px;
+    }
+    .count {
+        font-size: 16px;
+        line-height: 130%;
+    }
+    #answer {
+        font-size: 18px;
+        color: rgb(12, 250, 20);
+    }
+    </style>
+</head>
+  <body>
+    <div class="wrapper" id="wrapper">
+        <div class="answer__ind">
+            <span id="answer__ind"></span>
+        </div>
+        <div class="question__text">
+            Питання: <span id="question__text"></span>
+        </div>
+        <table class="table" id="table">
+            <tr>
+                <td><label for="a1">бісектриса</label></td>
+                <td><label for="a2">висота</label></td>
+                <td><label for="a3">медіана</label></td>
+                <td><label for="a4">серединний перпендикуляр</label></td>
+                <td><label for="a5">середня лінія</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="question" id="a1"></td>
+                <td><input type="radio" name="question" id="a2"></td>
+                <td><input type="radio" name="question" id="a3"></td>
+                <td><input type="radio" name="question" id="a4"></td>
+                <td><input type="radio" name="question" id="a5"></td>
+            </tr>
+        </table>
+        <button id="btn">Ответить</button>
+        <div id="total_div">
+            <div class="question__number">
+                Номер питання: <span id="question_number">1</span>
+            </div>
+            <div class="count">
+                Кількість правильних відповідей:
+                <span id="number_right_questions">0</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const questionNumber = document.getElementById('question_number')
+        const rigthQuestionNumber = document.getElementById('number_right_questions')
+        let answerInd = document.getElementById('answer__ind')
+        let questionText = document.getElementById('question__text')
+        let task1 = new Text('Відрізок, який з`єднує вершину трикутника з серединою протилежної сторони, - це ...');
+        let task2 = new Text('Промінь, що проходить через вершину кута та ділить його навпіл, - це ...');
+        let task3 = new Text('Відрізок, що з`єднує середини двох сторін цієї фігури, - це ...');
+        let task4 = new Text('Перпендикуляр, опущений з вершини фігури на його основу, - це ...');
+        let task5 = new Text('Пряма, що проходить через середину відрізка, перпендикулярно до нього, - це ...');
+        let quest = [task1, task2, task3, task4, task5];
+        let right_answer = [a3, a1, a5, a2, a4]
+        let num_task = 0;
+        let num_ans = 0;
+        let sum = 0;
+        questionText.innerHTML = quest[num_task].textContent ? quest[num_task].textContent : quest[num_task].innerText;
+        btn.addEventListener("click", fnc);
+                function fnc(){
+                    num_task++;
+                    questionText.innerHTML = quest[num_task].textContent ? quest[num_task].textContent : quest[num_task].innerText;;
+                    // questionText.innerHTML = quest[num_task];
+                    questionNumber.innerHTML = num_task + 1;
+                }
+        btn.addEventListener("click", fnc1);
+        function fnc1(){
+            console.log(a1.checked);
+            console.log(a2.checked);
+            console.log(a3.checked);
+            console.log(a4.checked);
+            console.log(a5.checked);
+            if (right_answer[num_ans].checked){
+                answerInd.innerHTML = "<span style='color: green'>Right answer</span>";
+                sum++;
+                rigthQuestionNumber.innerHTML = sum;
+            } else {
+                answerInd.innerHTML = "<span style='color: red'>Wrong answer</span>";
+            }
+            num_ans++;
+        if (num_ans == right_answer.length){
+            document.body.remove(table);
+            alert("Total points:" + sum);
+        }
+        }
+    </script>
+</body>
+
+</html>
