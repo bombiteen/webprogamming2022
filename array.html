@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>тест</title>
+    <style type="text/css">
+        body {
+          display: flex;
+          flex-flow: column-reverse;
+          width: 600px;
+          align-items: center;
+          margin: 50px 50px;
+        }
+        div {
+          display: flex;
+          align-items: flex-start;
+          flex-flow: column;
+          padding-top: 20px;
+        }
+        label {
+          padding-left: 5px;
+        }
+        #btn {
+          margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    <table class="table" id="table">
+        <tr>
+            <td><label for="a1">-1</label></td>
+            <td><label for="a2">6</label></td>
+            <td><label for="a3">5</label></td>
+            <td><label for="a4">8</label></td>
+            <td><label for="a5">~0.67</label></td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="question" id="a1"></td>
+            <td><input type="radio" name="question" id="a2"></td>
+            <td><input type="radio" name="question" id="a3"></td>
+            <td><input type="radio" name="question" id="a4"></td>
+            <td><input type="radio" name="question" id="a5"></td>
+        </tr>
+    </table>
+    <button id="btn">Ответить</button>
+    </div>
+    <script>
+        let task1 = new Text('2+3');
+        let task2 = new Text('2-3');
+        let task3 = new Text('2*3');
+        let task4 = new Text('2/3');
+        let task5 = new Text('2^3');
+        let quest = [task1, task2, task3, task4, task5];
+        let right_answer = [a3, a1, a2, a5, a4]
+        let num_task = 0;
+        let num_ans = 0;
+        let sum = 0;
+        document.body.appendChild(quest[num_task]);
+        btn.addEventListener("click", fnc);
+                function fnc(){
+                    document.body.removeChild(quest[num_task]);
+                    num_task++;
+                    document.body.appendChild(quest[num_task]);
+                }
+        btn.addEventListener("click", fnc1);
+        function fnc1(){
+            console.log(a1.checked);
+            console.log(a2.checked);
+            console.log(a3.checked);
+            console.log(a4.checked);
+            console.log(a5.checked);
+            if (right_answer[num_ans].checked){
+                alert("Right answer");
+                sum++;
+            } else {
+                alert("Wrong answer");
+            }
+            num_ans++;
+        if (num_ans == right_answer.length){
+            document.body.remove(table);
+            alert("Total points:" + sum);
+        }
+        }
+    </script>
+</body>
+
+</html>
